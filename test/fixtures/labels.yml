@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  MK_type: MyString
+  pathogen: MyString
+
+two:
+  MK_type: MyString
+  pathogen: MyString

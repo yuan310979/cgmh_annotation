@@ -1,0 +1,13 @@
+<div style="background: #F5F5F5; width: 659px; padding: 50px; margin: 100px auto auto auto">
+    <%= form_for @img, :action => 'create', :html => {:multipart => true} do |f|  %>
+        <div class="image">
+            <p>Select Images:</p>
+            <%= f.file_field :imgs, multiple: true %>
+        </div>
+        <div class="label">
+            <p>Select label file:</p>
+            <%= f.file_field :label %>
+        </div>
+        <%= f.submit 'Upload' %>
+    <% end %>
+</div>
