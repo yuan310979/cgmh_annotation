@@ -66,3 +66,7 @@ gem "paperclip", "~> 6.0.0"
 
 # Use creek to parse label files
 gem 'creek'
+
+# Use Bootstrap framework
+gem 'bootstrap'
+gem 'jquery-rails'
