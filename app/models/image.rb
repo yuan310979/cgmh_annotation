@@ -1,5 +1,6 @@
 class Image < ApplicationRecord
     belongs_to :label
+    has_many :records
 
     has_one_attached :img
 

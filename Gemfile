@@ -70,3 +70,6 @@ gem 'creek'
 # Use Bootstrap framework
 gem 'bootstrap'
 gem 'jquery-rails'
+
+# Use devise
+gem 'devise'
