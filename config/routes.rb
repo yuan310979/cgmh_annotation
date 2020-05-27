@@ -10,4 +10,6 @@ Rails.application.routes.draw do
             post :import
         end
     end
+
+    resource :quiz
 end
