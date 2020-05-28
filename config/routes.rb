@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     # end
     root :to => "images#index"
     devise_for :users
+    resource :user
 
     resources :images do
         collection do
@@ -11,5 +12,13 @@ Rails.application.routes.draw do
         end
     end
 
-    resource :quiz
+    resource :quiz do
+        collection do
+            post :submit
+        end
+    end
+
+    get "/records/export", to: "records#export"
+
+    resources :records
 end

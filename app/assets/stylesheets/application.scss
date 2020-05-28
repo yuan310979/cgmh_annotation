@@ -13,3 +13,11 @@
  */
 
 @import 'bootstrap';
+@import 'quizzes';
+@import 'users';
+@import 'images';
+
+nav li {
+    position: relative;
+    display: block;
+}

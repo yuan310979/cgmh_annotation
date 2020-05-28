@@ -9,7 +9,7 @@ class ImagesController < ApplicationController
 
     def new 
         @img = Image.new
-        @label = @img.build_label
+        # @label = @img.build_label
     end
 
     def create 

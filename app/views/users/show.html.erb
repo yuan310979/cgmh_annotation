@@ -1,0 +1,22 @@
+<div>
+    <h1><%= @user.email %></h1>
+    <%= "#{@user.records.length()}/#{@imgs.length()}" %>
+    <table class="user_records">
+        <tr>
+            <th><%= "ImageID" %></th>
+            <th><%= "filename" %></th>
+            <th><%= "major_dx_class" %></th>
+            <th><%= "dx_subclass" %></th>
+            <th><%= "feature_annotations" %></th>
+        </tr>
+        <% @user.records.each do |r| %>
+            <tr>
+                <th><%=r.image_id %></th>
+                <th><%=r.image.img.filename %></th>
+                <th><%=r.label.major_dx_class %></th>
+                <th><%=r.label.dx_subclass %></th>
+                <th><%=r.label.feature_annotations %></th>
+            </tr>
+        <% end %>
+    </table>
+</div>

@@ -1,18 +1,52 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CgmhWeb</title>
+    <title>Ophthalmology Annotation</title>
+    <link rel="icon" href="./assets/favicon.png">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <p><%= notice %></p>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">BDALAB</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <%= link_to "Quiz", quiz_path, class: 'nav-link'%>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Upload", new_image_path, class: 'nav-link'%>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Export",  records_export_path(format: :csv), class: 'nav-link'%>
+          </li>
+        </ul>
+      </div>
+      <div class="my-2 my-lg-0">
+        <% if user_signed_in? %>
+          <%= link_to current_user.email, user_path, class: 'mr-sm-0 text-white' %>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'btn btn-outline-light ml-4 my-2 my-sm-0'%>
+        <% else %>
+          <%= link_to "Login", new_user_session_path, class: 'btn btn-outline-light ml-4 my-2 my-sm-0'%>
+        <% end %>
+      </div>
+    </nav>
+    <% if flash[:notice] %>
+      <div class="alert alert-success">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class="alert alert-danger">
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
     <%= yield %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>

@@ -1,3 +1,51 @@
 // Place all the styles related to the quiz controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.mdc {
+    border: 2px solid black;
+}
+
+.ds {
+    border: 2px solid black;
+    background-color: #DAE3F3;
+}
+
+.df {
+    border: 2px solid black;
+    background-color: #FFF2CC;
+}
+
+.testing_block {
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+}
+
+.quiz_block_title {
+    font-weight: bolder;
+}
+
+#quiz_img img {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    display: block;
+}
+
+#confirm {
+    // display: None;
+    text-align: center;
+}
+
+#status {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 28px;
+}
+
+ul {
+    margin: 1px 1px;
+    padding: 0 2px;
+}

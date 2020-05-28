@@ -1,5 +1,206 @@
-<%= @img.ids %>
-<%= @done_img_ids %>
-<%= @undo_img_ids %>
+<div class="row">
+    <div class="col-8 offset-2">
+        <div id="status">
+            <%= @done_img_ids.length().to_s + '/' + @img.length().to_s %>
+        </div>
+    </div>
+</div>
 
-<%= @done_img_ids.size.to_s + '/' + @img.ids.size.to_s %>
+<div class="row">
+    <div class="col-8 offset-2">
+        <div id="quiz_img">
+            <%= image_tag @quiz_img.img, size: "512"%>
+        </div>
+    </div>
+</div>
+
+<%= form_for(@record) do |f| %>
+    <div class="row testing_block">
+        <div class="mdc col-2">
+            <ul style="list-style-type:none;">
+                <li class="quiz_block_title">
+                    <%= "Major Dx classes" %>
+                </li>
+                <li>
+                    <%= check_box_tag "mdc", "Bacterial keratitis", false, class: 'mdc bk'%>
+                    <%= "Bacterial keratitis" %>
+                </li>
+                <li>
+                    <%= check_box_tag "mdc", "Fungal keratitis", false, class: 'mdc fk'%>
+                    <%= "Fungal keratitis" %>
+                </li>
+                <li>
+                    <%= check_box_tag "mdc", "Parasitic keratitis", false, class: 'mdc pk'%>
+                    <%= "Parasitic keratitis" %>
+                </li>
+                <li>
+                    <%= check_box_tag "mdc", "Viral keratitis", false, class: 'mdc vk'%>
+                    <%= "Viral keratitis" %>
+                </li>
+                <li>
+                    <%= check_box_tag "mdc", "Non-infectious keratitis", false, class: 'mdc nk'%>
+                    <%= "Non-infectious keratitis" %>
+                </li>
+            </ul>
+        </div>
+        <div class="ds col-3">
+            <ul style="list-style-type:none;">
+                <li class="quiz_block_title">
+                    <%= "Dx subclasses" %>
+                </li>
+                <li>
+                    <div class="row">
+                        <div class="col-6">
+                            <%= check_box_tag "ds", "Pseudomonas", false, class: 'ds bk' %>
+                            <%= "Pseudomonas" %>
+                        </div>
+                        <div class="col-6">
+                            <%= check_box_tag "ds", "Others", false, class: 'ds bk' %>
+                            <%= "Others" %>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="row">
+                        <div class="col-6">
+                            <%= check_box_tag "ds", "Filamentous", false, class: 'ds fk' %>
+                            <%= "Filamentous" %>
+                        </div>
+                        <div class="col-6">
+                            <%= check_box_tag "ds", "Non-filamentous", false, class: 'ds fk' %>
+                            <%= "Non-filamentous" %>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="row">
+                        <div class="col-6">
+                            <%= check_box_tag "ds", "Acanthamoeba", false, class: 'ds pk'%>
+                            <%= "Acanthamoeba" %>
+                        </div>
+                        <div class="col-6">
+                            <%= check_box_tag "ds", "Microsporidia", false, class: 'ds pk' %>
+                            <%= "Microsporidia" %>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="row">
+                        <div class="col-6">
+                            <%= check_box_tag "ds", "Herpes", false, class: 'ds vk' %>
+                            <%= "Herpes" %>
+                        </div>
+                        <div class="col-6">
+                            <%= check_box_tag "ds", "Adenovirus", false, class: 'ds vk' %>
+                            <%= "Adenovirus" %>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="row">
+                        <div class="col-6">
+                            <%= check_box_tag "ds", "Marginal", false, class: 'ds nk'%>
+                            <%= "Marginal" %>
+                        </div>
+                        <div class="col-6">
+                            <%= check_box_tag "ds", "Neurotrophic/PED", false, class: 'ds nk' %>
+                            <%= "Neurotrophic/PED" %>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="df col-7">
+            <ul style="list-style-type:none;">
+                <li class="quiz_block_title">
+                    <%= "Dependent feature(s) of diagnosis" %>
+                </li>
+                <li>
+                    <div class="row">
+                        <div class="col-4">
+                            <%= check_box_tag "df[]", "Oval shape ulcer", false, class: 'df bk'%>
+                            <%= "Oval shape ulcer" %>
+                        </div>
+                        <div class="col-4">
+                            <%= check_box_tag "df[]", "Wreath infiltrate", false, class: 'df bk'%>
+                            <%= "Wreath infiltrate" %>
+                        </div>
+                        <div class="col-4">
+                            <%= check_box_tag "df[]", "Epithelial plaque", false, class: 'df bk'%>
+                            <%= "Epithelial plaque" %>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="row">
+                        <div class="col-4">
+                            <%= check_box_tag "df[]", "Feathery margin", false, class: 'df fk'%>
+                            <%= "Feathery margin" %>
+                        </div>
+                        <div class="col-4">
+                            <%= check_box_tag "df[]", "Raised slough", false, class: 'df fk'%>
+                            <%= "Raised slough" %>
+                        </div>
+                        <div class="col-4">
+                            <%= check_box_tag "df[]", "Colored ulcer", false, class: 'df fk'%>
+                            <%= "Colored ulcer" %>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="row">
+                        <div class="col-4">
+                            <%= check_box_tag "df[]", "Radial keratoneuritis", false, class: 'df pk'%>
+                            <%= "Radial keratoneuritis" %>
+                        </div>
+                        <div class="col-4">
+                            <%= check_box_tag "df[]", "Ring ulcer", false, class: 'df pk'%>
+                            <%= "Ring ulcer" %>
+                        </div>
+                        <div class="col-4">
+                            <%= check_box_tag "df[]", "Multifocal coarse PEK", false, class: 'df pk'%>
+                            <%= "Multifocal coarse PEK" %>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="row">
+                        <div class="col-4">
+                            <%= check_box_tag "df[]", "Dendriform epithelitis", false, class: 'df vk'%>
+                            <%= "Dendriform epithelitis" %>
+                        </div>
+                        <div class="col-4">
+                            <%= check_box_tag "df[]", "Geographic ulcer", false, class: 'df vk'%>
+                            <%= "Geographic ulcer" %>
+                        </div>
+                        <div class="col-4">
+                            <%= check_box_tag "df[]", "Subepithelial infiltrate", false, class: 'df vk'%>
+                            <%= "Subepithelial infiltrate" %>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="row">
+                        <div class="col-4">
+                            <%= check_box_tag "df[]", "Peripheral ulcer", false, class: 'df nk'%>
+                            <%= "Peripheral ulcer" %>
+                        </div>
+                        <div class="col-4">
+                            <%= check_box_tag "df[]", "Crescent shape", false, class: 'df nk'%>
+                            <%= "Crescent shape" %>
+                        </div>
+                        <div class="col-4">
+                            <%= check_box_tag "df[]", "Rolled edge", false, class: 'ds nk'%>
+                            <%= "Rolled edge" %>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-4 offset-4" id="confirm">
+        <%= f.hidden_field :user_id, value: @user_id %>
+        <%= f.hidden_field :quiz_img_id, value: @quiz_img_id %>
+        <%= f.submit "Submit", :id => "submit", :class => "btn btn-dark"%>
+    </div>
+<% end %>
