@@ -2,7 +2,7 @@ Rails.application.routes.draw do
     # devise_scope :user do
         # root :to => "devise/sessions#new"
     # end
-    root :to => "images#index"
+    root :to => "users#show"
     devise_for :users
     resource :user
 
