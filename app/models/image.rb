@@ -3,6 +3,8 @@ class Image < ApplicationRecord
     has_many :records
 
     has_one_attached :img
+    has_one_attached :img_blue
+    has_one_attached :img_green
 
     def self.import(params)
         # Process label table and store it into a mapping dict from image to its label
@@ -29,7 +31,24 @@ class Image < ApplicationRecord
         # Processing Images
         imgs = params['imgs']
         imgs.each do |img|
-            tmp = Image.new({:img => img})
+            upload_filename = img.original_filename
+            filename = upload_filename.split('.').first
+            file_extention = upload_filename.split('.').last
+            fname = filename.split('_').first
+            type = upload_filename.split('_').last.split('.').first
+            
+            im = Image.where({:fname => fname}).last
+            if im == nil
+                im = Image.new({:fname => fname})
+            end
+            if type == 'blue'
+                im.img_blue = img
+            elsif type == 'green'
+                im.img_green = img
+            else
+                im.img = img
+            end
+            
             # name = img.original_filename
             # label = img2label[name.split('.')[0]]
             # if (l = Label.where(:major_dx_class => major_dx_class, :dx_subclass => dx_subclass, :feature_annotations => feature_annotations)[-1]) != nil
@@ -39,7 +58,7 @@ class Image < ApplicationRecord
             #     tmp_label.save
             # end
 
-            if not tmp.save 
+            if not im.save 
                 logger.info "Store Error"
             end
         end
