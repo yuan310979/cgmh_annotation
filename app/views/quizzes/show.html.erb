@@ -10,21 +10,21 @@
     <div class="col-4">
         <div class="quiz_img">
             <% if @quiz_img.img.attached? %>
-                <%= image_tag @quiz_img.img, size: "512"%>
+                <%= image_tag @quiz_img.img%>
             <% end %>
         </div>
     </div>
     <div class="col-4">
         <div class="quiz_img">
             <% if @quiz_img.img_blue.attached? %>
-                <%= image_tag @quiz_img.img_blue, size: "512"%>
+                <%= image_tag @quiz_img.img_blue%>
             <% end %>
         </div>
     </div>
     <div class="col-4">
         <div class="quiz_img">
             <% if @quiz_img.img_green.attached? %>
-                <%= image_tag @quiz_img.img_green, size: "512"%>
+                <%= image_tag @quiz_img.img_green%>
             <% end %>
         </div>
     </div>
@@ -38,23 +38,23 @@
                     <%= "Major Dx classes" %>
                 </li>
                 <li>
-                    <%= check_box_tag "mdc", "Bacterial keratitis", false, class: 'mdc bk'%>
+                    <%= radio_button_tag "mdc", "Bacterial keratitis", false, class: 'mdc bk'%>
                     <%= "Bacterial keratitis" %>
                 </li>
                 <li>
-                    <%= check_box_tag "mdc", "Fungal keratitis", false, class: 'mdc fk'%>
+                    <%= radio_button_tag "mdc", "Fungal keratitis", false, class: 'mdc fk'%>
                     <%= "Fungal keratitis" %>
                 </li>
                 <li>
-                    <%= check_box_tag "mdc", "Parasitic keratitis", false, class: 'mdc pk'%>
+                    <%= radio_button_tag "mdc", "Parasitic keratitis", false, class: 'mdc pk'%>
                     <%= "Parasitic keratitis" %>
                 </li>
                 <li>
-                    <%= check_box_tag "mdc", "Viral keratitis", false, class: 'mdc vk'%>
+                    <%= radio_button_tag "mdc", "Viral keratitis", false, class: 'mdc vk'%>
                     <%= "Viral keratitis" %>
                 </li>
                 <li>
-                    <%= check_box_tag "mdc", "Non-infectious keratitis", false, class: 'mdc nk'%>
+                    <%= radio_button_tag "mdc", "Non-infectious keratitis", false, class: 'mdc nk'%>
                     <%= "Non-infectious keratitis" %>
                 </li>
             </ul>
@@ -65,61 +65,61 @@
                     <%= "Dx subclasses" %>
                 </li>
                 <li>
-                    <div class="row">
+                    <div class="row bk_row">
                         <div class="col-6">
-                            <%= check_box_tag "ds", "Pseudomonas", false, class: 'ds bk' %>
+                            <%= radio_button_tag "ds", "Pseudomonas", false, class: 'ds bk' %>
                             <%= "Pseudomonas" %>
                         </div>
                         <div class="col-6">
-                            <%= check_box_tag "ds", "Others", false, class: 'ds bk' %>
+                            <%= radio_button_tag "ds", "Others", false, class: 'ds bk' %>
                             <%= "Others" %>
                         </div>
                     </div>
                 </li>
                 <li>
-                    <div class="row">
+                    <div class="row fk_row">
                         <div class="col-6">
-                            <%= check_box_tag "ds", "Filamentous", false, class: 'ds fk' %>
+                            <%= radio_button_tag "ds", "Filamentous", false, class: 'ds fk' %>
                             <%= "Filamentous" %>
                         </div>
                         <div class="col-6">
-                            <%= check_box_tag "ds", "Non-filamentous", false, class: 'ds fk' %>
+                            <%= radio_button_tag "ds", "Non-filamentous", false, class: 'ds fk' %>
                             <%= "Non-filamentous" %>
                         </div>
                     </div>
                 </li>
                 <li>
-                    <div class="row">
+                    <div class="row pk_row">
                         <div class="col-6">
-                            <%= check_box_tag "ds", "Acanthamoeba", false, class: 'ds pk'%>
+                            <%= radio_button_tag "ds", "Acanthamoeba", false, class: 'ds pk'%>
                             <%= "Acanthamoeba" %>
                         </div>
                         <div class="col-6">
-                            <%= check_box_tag "ds", "Microsporidia", false, class: 'ds pk' %>
+                            <%= radio_button_tag "ds", "Microsporidia", false, class: 'ds pk' %>
                             <%= "Microsporidia" %>
                         </div>
                     </div>
                 </li>
                 <li>
-                    <div class="row">
+                    <div class="row vk_row">
                         <div class="col-6">
-                            <%= check_box_tag "ds", "Herpes", false, class: 'ds vk' %>
+                            <%= radio_button_tag "ds", "Herpes", false, class: 'ds vk' %>
                             <%= "Herpes" %>
                         </div>
                         <div class="col-6">
-                            <%= check_box_tag "ds", "Adenovirus", false, class: 'ds vk' %>
+                            <%= radio_button_tag "ds", "Adenovirus", false, class: 'ds vk' %>
                             <%= "Adenovirus" %>
                         </div>
                     </div>
                 </li>
                 <li>
-                    <div class="row">
+                    <div class="row nk_row">
                         <div class="col-6">
-                            <%= check_box_tag "ds", "Marginal", false, class: 'ds nk'%>
+                            <%= radio_button_tag "ds", "Marginal", false, class: 'ds nk'%>
                             <%= "Marginal" %>
                         </div>
                         <div class="col-6">
-                            <%= check_box_tag "ds", "Neurotrophic/PED", false, class: 'ds nk' %>
+                            <%= radio_button_tag "ds", "Neurotrophic/PED", false, class: 'ds nk' %>
                             <%= "Neurotrophic/PED" %>
                         </div>
                     </div>
@@ -132,9 +132,9 @@
                     <%= "Dependent feature(s) of diagnosis" %>
                 </li>
                 <li>
-                    <div class="row">
+                    <div class="row bk_row">
                         <div class="col-4">
-                            <%= check_box_tag "df[]", "Oval shape ulcer", false, class: 'df bk'%>
+                            <%= check_box_tag "df[]", "Oval shape ulcer", false, class: 'df bk osu'%>
                             <%= "Oval shape ulcer" %>
                         </div>
                         <div class="col-4">
@@ -148,9 +148,9 @@
                     </div>
                 </li>
                 <li>
-                    <div class="row">
+                    <div class="row fk_row">
                         <div class="col-4">
-                            <%= check_box_tag "df[]", "Feathery margin", false, class: 'df fk'%>
+                            <%= check_box_tag "df[]", "Feathery margin", false, class: 'df fk fm'%>
                             <%= "Feathery margin" %>
                         </div>
                         <div class="col-4">
@@ -164,9 +164,9 @@
                     </div>
                 </li>
                 <li>
-                    <div class="row">
+                    <div class="row pk_row">
                         <div class="col-4">
-                            <%= check_box_tag "df[]", "Radial keratoneuritis", false, class: 'df pk'%>
+                            <%= check_box_tag "df[]", "Radial keratoneuritis", false, class: 'df pk rk'%>
                             <%= "Radial keratoneuritis" %>
                         </div>
                         <div class="col-4">
@@ -180,9 +180,9 @@
                     </div>
                 </li>
                 <li>
-                    <div class="row">
+                    <div class="row vk_row">
                         <div class="col-4">
-                            <%= check_box_tag "df[]", "Dendriform epithelitis", false, class: 'df vk'%>
+                            <%= check_box_tag "df[]", "Dendriform epithelitis", false, class: 'df vk de'%>
                             <%= "Dendriform epithelitis" %>
                         </div>
                         <div class="col-4">
@@ -196,9 +196,9 @@
                     </div>
                 </li>
                 <li>
-                    <div class="row">
+                    <div class="row nk_row">
                         <div class="col-4">
-                            <%= check_box_tag "df[]", "Peripheral ulcer", false, class: 'df nk'%>
+                            <%= check_box_tag "df[]", "Peripheral ulcer", false, class: 'df nk pu'%>
                             <%= "Peripheral ulcer" %>
                         </div>
                         <div class="col-4">
@@ -206,7 +206,7 @@
                             <%= "Crescent shape" %>
                         </div>
                         <div class="col-4">
-                            <%= check_box_tag "df[]", "Rolled edge", false, class: 'ds nk'%>
+                            <%= check_box_tag "df[]", "Rolled edge", false, class: 'df nk'%>
                             <%= "Rolled edge" %>
                         </div>
                     </div>
