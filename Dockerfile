@@ -12,6 +12,7 @@ RUN bundle update --bundler
 RUN bundle install
 RUN rails db:migrate
 RUN rake init_label
+RUN rails active_storage:install
 
 EXPOSE 3001
 WORKDIR /workspace/cgmh_annotation
