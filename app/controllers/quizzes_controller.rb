@@ -15,7 +15,7 @@ class QuizzesController < ApplicationController
         @undo_img_ids = @img.ids - @done_img_ids
 
         if @undo_img_ids.length() == 0
-            flash[:notice] = "Already Finish Your QUIZ"
+            flash[:notice] = "Already Finished Your Labeling!"
             redirect_to user_path
         end
 
