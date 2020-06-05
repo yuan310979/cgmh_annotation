@@ -35,18 +35,22 @@ class Image < ApplicationRecord
             filename = upload_filename.split('.').first
             file_extention = upload_filename.split('.').last
             fname = filename.split('_').first
-            type = upload_filename.split('_').last.split('.').first
+
+            type_list = filename.split('_')
             
             im = Image.where({:fname => fname}).last
             if im == nil
                 im = Image.new({:fname => fname})
             end
-            if type == 'blue'
+
+            if type_list.include?("CP") && type_list.include?("NS")
+                im.img = img
+            elsif type_list.include?("FB")
                 im.img_blue = img
-            elsif type == 'green'
+            elsif type_list.include?("FG")
                 im.img_green = img
             else
-                im.img = img
+                next
             end
             
             # name = img.original_filename
