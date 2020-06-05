@@ -14,7 +14,7 @@ class ImagesController < ApplicationController
 
     def create 
         Image.import(image_params)
-        redirect_to images_path, notice: "Images imported"
+        redirect_to quiz_path, notice: "Images imported"
     end
 
     private
