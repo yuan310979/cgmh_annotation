@@ -1,6 +1,9 @@
 class RecordsController < ApplicationController
     def create
         r = Record.new()
+        if not params.key?(:df)
+            params[:df] = ["Others"]
+        end
         l = Label.where(:major_dx_class => params[:mdc], :dx_subclass => params[:ds], :feature_annotations => params[:df])[-1]
         if l == nil
             flash[:alert] = "Storing Record Fail..."

@@ -28,6 +28,9 @@ task :init_label  => :environment do
                     end
                 end
             end
+            if not Label.create({:major_dx_class => mdc, :dx_subclass => dxs, :feature_annotations => ["Others"]})
+                puts "Insert Error! #{mdc} #{dxs} #{f}"
+            end
         end
     end
 end

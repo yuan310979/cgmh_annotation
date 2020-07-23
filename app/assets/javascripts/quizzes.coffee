@@ -69,7 +69,7 @@ $check_boxes.click ->
         $ds += $(this)[0].checked
     $df_boxes.each (index) ->
         $df += $(this)[0].checked
-    if $mdc <= 0 || $ds <= 0 || $df <= 0
+    if $mdc <= 0 || $ds <= 0
         $('#submit').hide()
     else
         $('#submit').show()
