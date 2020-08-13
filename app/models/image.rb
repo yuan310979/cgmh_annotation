@@ -3,8 +3,8 @@ class Image < ApplicationRecord
     has_many :records
 
     has_one_attached :img
-    has_one_attached :img_blue
-    has_one_attached :img_green
+    has_one_attached :img_cpws
+    has_one_attached :img_fbns
 
     def self.import(params)
         # Process label table and store it into a mapping dict from image to its label
@@ -46,9 +46,9 @@ class Image < ApplicationRecord
             if type_list.include?("CP") && type_list.include?("NS")
                 im.img = img
             elsif type_list.include?("CP") && type_list.include?("WS")
-                im.img_blue = img
+                im.img_cpws = img
             elsif type_list.include?("FB")
-                im.img_green = img
+                im.img_fbns = img
             else
                 next
             end
