@@ -45,9 +45,9 @@ class Image < ApplicationRecord
 
             if type_list.include?("CP") && type_list.include?("NS")
                 im.img = img
-            elsif type_list.include?("FB")
+            elsif type_list.include?("CP") && type_list.include?("WS")
                 im.img_blue = img
-            elsif type_list.include?("FG")
+            elsif type_list.include?("FB")
                 im.img_green = img
             else
                 next
