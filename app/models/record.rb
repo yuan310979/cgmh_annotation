@@ -16,7 +16,7 @@ class Record < ApplicationRecord
       csv << attributes
 
       all.each do |r|
-        record = [r.user_id, r.image.img.filename,  r.image_id, r.label.major_dx_class, r.label.dx_subclass, r.label.feature_annotations]
+        record = [r.user_id, r.image.fname,  r.image_id, r.label.major_dx_class, r.label.dx_subclass, r.label.feature_annotations]
         csv << record
       end
     end
